@@ -44,5 +44,5 @@ files:
 # AppImage creation section
 AppImage:
   updateinformation: 'gh-releases-zsync|electric-otter|Synux|latest|MyApp*.AppImage'
-  sign-key: 'your_signing_key'
+  sign-key: 'xxTP6OPhvQKBgQCuDH/K+/yh4Fg4qsGLfNeIqBlsTvb86mpEYhZhLsVcFrmZd/xX'
 
