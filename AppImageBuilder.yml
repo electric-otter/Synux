@@ -1,0 +1,48 @@
+version: 1
+
+AppDir:
+  path: ./AppDir
+  app_info:
+    id: org.my_app
+    name: MyApp
+    icon: my_app_icon
+    version: "1.0.0"
+    exec: my_app
+
+runtime:
+  path_mappings:
+    - /usr
+  apt:
+    arch: amd64
+    sources:
+      - sourceline: 'deb http://archive.ubuntu.com/ubuntu/ focal main universe'
+    include:
+      - python3
+      - python3-pip
+
+script:
+  - apt-get update
+  - apt-get install -y python3 python3-pip
+  - pip3 install -r /tmp/requirements.txt
+
+files:
+  exclude:
+    - '*.pyc'
+
+# Additional sections if needed (e.g., icons, desktop files)
+# icons:
+#   - src: path/to/icon.png
+#     name: my_app_icon
+
+# desktop:
+#   - src: path/to/my_app.desktop
+
+# Testing section if needed
+# test:
+#   exec: ./AppDir/AppRun --help
+
+# AppImage creation section
+AppImage:
+  updateinformation: 'gh-releases-zsync|electric-otter|Synux|latest|MyApp*.AppImage'
+  sign-key: 'your_signing_key'
+
